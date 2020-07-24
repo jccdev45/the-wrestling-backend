@@ -1,1 +1,46 @@
-GET http://localhost:3000/api
+### ROOT ###
+GET http://localhost:3000/
+
+###
+GET http://localhost:3000/wrestlers
+
+###
+GET http://localhost:3000/matches
+
+###
+POST http://localhost:3000/wrestlers
+Content-Type: application/json
+
+{
+    "name": "Colby Lopez",
+    "dob": "May 28 1986",
+    "nationality": "USA",
+    "ringNames": ["Seth Rollins", "Taj the Destroyer", "Tyler Black"],
+    "promotions": ["WWE", "PWG", "NXT", "IWA", "ROH"],
+    "championships": ["WWE Universal Championship", "WWE Championship", "ROH World Championship", "WWE NXT Championship"]
+}
+
+###
+POST http://localhost:3000/matches
+Content-Type: application/json
+
+{
+    "typePrimary": "Singles",
+    "typeSecondary": ["Hell in a Cell"],
+    "participants": ["Undertaker", "Mankind"],
+    "show": "King of the Ring",
+    "title": ["N/A"],
+    "outcome": "Undertaker wins by pinfall after he threw Mankind off the cell in nineteen ninety eight",
+    "date": "6/21/1998"
+}
+
+###
+PATCH http://localhost:3000/wrestlers/5f1a6d9031e59d2b90016e44
+Content-Type: application/json
+
+{
+    "championships": ["Blah blah Champion"]
+}
+
+###
+DELETE http://localhost:3000/wrestlers/5f1a623709b0cb0c44e68d5a
