@@ -1,12 +1,10 @@
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const mongoose = require("mongoose");
 
-let MONGODB_URI = process.env.DATABASE_URL;
-
-mongoose.set('useFindAndModify', false);
+mongoose.set("useFindAndModify", false);
 
 mongoose
-  .connect(MONGODB_URI, {
+  .connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
