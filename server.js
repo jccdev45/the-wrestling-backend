@@ -1,21 +1,19 @@
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const logger = require("morgan");
-const routes = require("./routes");
-const db = require("./db/connection");
+require("dotenv").config();
 
-const PORT = process.env.PORT || 3000;
+const express = require("express");
+// const cors = require("cors");
+const logger = require("morgan");
+const bodyParser = require("body-parser");
+const router = require("./routes");
 
 const app = express();
 
-app.use(cors);
+const PORT = process.env.PORT || 3000;
+
 app.use(bodyParser.json());
+// app.use(cors);
 app.use(logger("dev"));
 
-app.use("/api", routes);
-
-db.on("error", console.error.bind(console, "MongoDB connection error: "));
-db.on("open", () => console.log("Connected to database"));
+app.use("/", router);
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));

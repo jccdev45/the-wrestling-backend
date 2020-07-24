@@ -3,10 +3,10 @@ const controllers = require("../controllers/wrestlers");
 
 const router = Router();
 
-router.get("/wrestlers", controllers.getWrestlers);
-router.get("/wrestlers/:id", controllers.getWrestler);
-router.post("/wrestlers", controllers.addWrestler);
-router.put("/wrestlers/:id", controllers.updateWrestler);
-router.delete("/wrestlers/:id", controllers.deleteWrestler);
+router.get("/", controllers.getWrestlers);
+router.get("/:id", controllers.getWrestler);
+router.post("/", controllers.addWrestler);
+router.patch("/:id", controllers.updateWrestler);
+router.delete("/:id", controllers.deleteWrestler);
 
 module.exports = router;
