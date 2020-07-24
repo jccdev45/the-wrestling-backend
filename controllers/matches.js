@@ -12,7 +12,16 @@ const getMatches = async (req, res) => {
   }
 };
 
-const getMatch = async (req, res) => {
+const searchMatches = async (req, res) => {
+  try {
+    const matches = await Match.find(req.body);
+    res.json(matches);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const getMatchById = async (req, res) => {
   try {
     const { id } = req.params;
     const match = await Match.findById(id);
@@ -63,7 +72,8 @@ const deleteMatch = async (req, res) => {
 
 module.exports = {
   getMatches,
-  getMatch,
+  searchMatches,
+  getMatchById,
   addMatch,
   updateMatch,
   deleteMatch,

@@ -2,10 +2,18 @@
 GET http://localhost:3000/
 
 ###
-GET http://localhost:3000/wrestlers
+POST http://localhost:3000/wrestlers
+Content-Type: application/json
+
+{
+    "name": "Colby"
+}
 
 ###
 GET http://localhost:3000/matches
+
+###
+GET http://localhost:3000/matches"
 
 ###
 POST http://localhost:3000/wrestlers
