@@ -3,8 +3,11 @@ const mongoose = require("mongoose");
 
 mongoose.set("useFindAndModify", false);
 
+let MONGODB_URI =
+  process.env.DATABASE_URL || "mongodb://localhost/wrestlingDatabase";
+
 mongoose
-  .connect(process.env.DATABASE_URL, {
+  .connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
