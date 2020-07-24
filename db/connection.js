@@ -1,7 +1,7 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 
-let MONGODB_URI =
-  process.env.PROD_MONGODB || "mongodb://127.0.0.1:27017/wrestlingDatabase";
+let MONGODB_URI = process.env.DATABASE_URL;
 
 mongoose
   .connect(MONGODB_URI, {

@@ -16,5 +16,6 @@ app.use(logger("dev"));
 app.use("/api", routes);
 
 db.on("error", console.error.bind(console, "MongoDB connection error: "));
+db.on("open", () => console.log("Connected to database"));
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
