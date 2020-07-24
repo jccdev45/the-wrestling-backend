@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 
 mongoose.set("useFindAndModify", false);
 
-let MONGODB_URI =
-  process.env.DATABASE_URL || "mongodb://localhost/wrestlingDatabase";
+let MONGODB_URI = process.env.DATABASE_URL || process.env.PROD_MONGODB;
 
 mongoose
   .connect(MONGODB_URI, {
